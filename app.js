@@ -163,10 +163,8 @@ function singleSearch(people) {
       displayPeople(singleTrait);
       break;
     default:
-
-      return singleSearchResult;
   }
-
+  return singleSearchResult;
 }
 
 //TODO: add other trait filter functions here.
