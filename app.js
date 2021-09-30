@@ -106,6 +106,38 @@ function searchByEyeColor(people) {
   return foundPerson;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function searchByGender(people){
+  let genderSearch = prompt ("What is the hair color of the person you are seaching for?", autoValid);
+
+  let foundPerson = people.filter(function (potentialMatch) {
+    if (potentialMatch.gender === genderSearch){
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  return foundPerson;
+}
+
 //TODO: add other trait filter functions here.
 
 
