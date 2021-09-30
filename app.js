@@ -106,14 +106,14 @@ function searchByEyeColor(people) {
   return foundPerson;
 }
 
-function searchByGender(people){
-  let genderSearch = prompt ("What is the hair color of the person you are seaching for?", autoValid);
+function searchByGender(people) {
+  let genderSearch = prompt("What is the gender of the person you are seaching for?", autoValid);
 
   let foundPerson = people.filter(function (potentialMatch) {
-    if (potentialMatch.gender === genderSearch){
+    if (potentialMatch.gender === genderSearch) {
       return true;
     }
-    else{
+    else {
       return false;
     }
   });
@@ -125,6 +125,21 @@ function searchByHeight(people) {
 
   let foundPerson = people.filter(function (potentialMatch) {
     if (potentialMatch.height === heightSearch) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  });
+  return foundPerson;
+}
+
+
+function searchByWeight(people) {
+  let weightSearch = prompt("What is the weight of the person you are searching for?", autoValid);
+
+  let foundPerson = people.filter(function (potentialMatch) {
+    if (potentialMatch.weight === weightSearch) {
       return true;
     }
     else {
