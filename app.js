@@ -15,14 +15,7 @@ function app(people) {
       searchResults = searchByName(people);
       break;
     case 'no':
-      let userInput = prompt("Type '1' to search by single trait or type '2' to search by multiple");
-      if (userInput === "1") {
-        searchResults = searchByEyeColor(people);
-      } else if (userInput === "2") {
-        //do something
-      } else {
-        prompt("Type '1' to search by single trait or type '2' to search by multiple");
-      }
+      searchResults = singleSearch(people)
       // TODO: search by traits
 
       break;
@@ -93,7 +86,7 @@ function searchByName(people) {
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people) {
-  let eyeColorSearch = prompt("What is the eye color of the person you are searching for?", autoValid);
+  let eyeColorSearch = prompt("What is the eye color of the person you are searching for?");
 
   let foundPerson = people.filter(function (potentialMatch) {
     if (potentialMatch.eyeColor === eyeColorSearch) {
@@ -107,7 +100,7 @@ function searchByEyeColor(people) {
 }
 
 function searchByGender(people) {
-  let genderSearch = prompt("What is the gender of the person you are seaching for?", autoValid);
+  let genderSearch = prompt("What is the gender of the person you are seaching for?");
 
   let foundPerson = people.filter(function (potentialMatch) {
     if (potentialMatch.gender === genderSearch) {
@@ -121,10 +114,10 @@ function searchByGender(people) {
 }
 
 function searchByHeight(people) {
-  let heightSearch = prompt("What is the height of the person you are searching for?", autoValid);
+  let heightSearch = prompt("What is the height of the person you are searching for?");
 
   let foundPerson = people.filter(function (potentialMatch) {
-    if (potentialMatch.height === heightSearch) {
+    if (potentialMatch.height === parseInt(heightSearch)) {
       return true;
     }
     else {
@@ -136,10 +129,10 @@ function searchByHeight(people) {
 
 
 function searchByWeight(people) {
-  let weightSearch = prompt("What is the weight of the person you are searching for?", autoValid);
+  let weightSearch = prompt("What is the weight of the person you are searching for?");
 
   let foundPerson = people.filter(function (potentialMatch) {
-    if (potentialMatch.weight === weightSearch) {
+    if (potentialMatch.weight === parseInt(weightSearch)) {
       return true;
     }
     else {
@@ -147,6 +140,33 @@ function searchByWeight(people) {
     }
   });
   return foundPerson;
+}
+
+function singleSearch(people) {
+  let singleTrait = people;
+  let singleSearchResult = prompt("What trait would you like to search for: 'eye color', 'gender', 'height', 'weight'");
+  switch (singleSearchResult) {
+    case "eye color":
+      singleTrait = searchByEyeColor(singleTrait);
+      displayPeople(singleTrait);
+      break;
+    case "gender":
+      singleTrait = searchByGender(singleTrait);
+      displayPeople(singleTrait);
+      break;
+    case "height":
+      singleTrait = searchByHeight(singleTrait);
+      displayPeople(singleTrait);
+      break;
+    case "weight":
+      singleTrait = searchByWeight(singleTrait);
+      displayPeople(singleTrait);
+      break;
+    default:
+
+      return singleSearchResult;
+  }
+
 }
 
 //TODO: add other trait filter functions here.
