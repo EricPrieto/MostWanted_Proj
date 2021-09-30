@@ -15,6 +15,7 @@ function app(people) {
       searchResults = searchByName(people);
       break;
     case 'no':
+      // let response = prompt(Would you like to search by a single or multiple traits?)
       searchResults = singleSearch(people)
       // TODO: search by traits
 
@@ -144,29 +145,64 @@ function searchByWeight(people) {
 
 function singleSearch(people) {
   let singleTrait = people;
-  let singleSearchResult = prompt("What trait would you like to search for: 'eye color', 'gender', 'height', 'weight'");
-  switch (singleSearchResult) {
-    case "eye color":
-      singleTrait = searchByEyeColor(singleTrait);
-      displayPeople(singleTrait);
-      break;
-    case "gender":
-      singleTrait = searchByGender(singleTrait);
-      displayPeople(singleTrait);
-      break;
-    case "height":
-      singleTrait = searchByHeight(singleTrait);
-      displayPeople(singleTrait);
-      break;
-    case "weight":
-      singleTrait = searchByWeight(singleTrait);
-      displayPeople(singleTrait);
-      break;
-    default:
+  let userSearch = true;
+  while (userSearch == true) {
+    let singleSearchResult = prompt("What trait would you like to search for: 'eye color', 'gender', 'height', 'weight', type 'Done' when you are finished");
+    switch (singleSearchResult) {
+      case "eye color":
+        singleTrait = searchByEyeColor(singleTrait);
+
+        break;
+      case "gender":
+        singleTrait = searchByGender(singleTrait);
+
+        break;
+      case "height":
+        singleTrait = searchByHeight(singleTrait);
+
+        break;
+      case "weight":
+        singleTrait = searchByWeight(singleTrait);
+
+      case 'Done':
+        userSearch = false;
+      default:
+    }
+
   }
+  displayPeople(singleTrait);
   return singleSearchResult;
 }
 
+
+let traits = ["eye color", "gender", "height", "weight"];
+function traitsToBeSelected() {
+
+}
+// function MultipleSearch(people) {
+//   let multipleTrait = people;
+//   let multipleSearchResult = prompt("What traits would you like to search for: 'eye color', 'gender', 'height', 'weight'");
+//   switch (multipleSearchResult) {
+//     case "eye color":
+//       multipleTrait = searchByEyeColor(multipleTrait);
+//       displayPeople(multipleTrait);
+//       break;
+//     case "gender":
+//       multipleTrait = searchByGender(multipleTrait);
+//       displayPeople(multipleTrait);
+//       break;
+//     case "height":
+//       multipleTrait = searchByHeight(multipleTrait);
+//       displayPeople(multipleTrait);
+//       break;
+//     case "weight":
+//       multipleTrait = searchByWeight(multipleTrait);
+//       displayPeople(multipleTrait);
+//       break;
+//     default:
+//   }
+//   return multipleSearchResult;
+// }
 //TODO: add other trait filter functions here.
 
 
