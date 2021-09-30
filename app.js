@@ -15,10 +15,7 @@ function app(people) {
       searchResults = searchByName(people);
       break;
     case 'no':
-      // let response = prompt(Would you like to search by a single or multiple traits?)
       searchResults = singleSearch(people)
-      // TODO: search by traits
-
       break;
     default:
       app(people); // restart app
@@ -43,7 +40,9 @@ function mainMenu(person, people) {
 
   switch (displayOption) {
     case "info":
-      // TODO: get person's info
+     console.log(" ");
+     displayPerson (person,people);
+     searchByEyeColor;
       break;
     case "family":
       // TODO: get person's family
@@ -179,32 +178,8 @@ let traits = ["eye color", "gender", "height", "weight"];
 function traitsToBeSelected() {
 
 }
-// function MultipleSearch(people) {
-//   let multipleTrait = people;
-//   let multipleSearchResult = prompt("What traits would you like to search for: 'eye color', 'gender', 'height', 'weight'");
-//   switch (multipleSearchResult) {
-//     case "eye color":
-//       multipleTrait = searchByEyeColor(multipleTrait);
-//       displayPeople(multipleTrait);
-//       break;
-//     case "gender":
-//       multipleTrait = searchByGender(multipleTrait);
-//       displayPeople(multipleTrait);
-//       break;
-//     case "height":
-//       multipleTrait = searchByHeight(multipleTrait);
-//       displayPeople(multipleTrait);
-//       break;
-//     case "weight":
-//       multipleTrait = searchByWeight(multipleTrait);
-//       displayPeople(multipleTrait);
-//       break;
-//     default:
-//   }
-//   return multipleSearchResult;
-// }
-//TODO: add other trait filter functions here.
 
+//TODO: add other trait filter functions here.
 
 
 //#endregion
