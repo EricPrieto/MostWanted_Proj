@@ -17,14 +17,6 @@ function app(people){
     case 'no':
      
       // TODO: search by traits
-// function app(traits){
-//     let searchOneTrait =promptFor ("Would you like to search by a Single Trait? Enter 'yes' or 'no'", yesNo).toLowerCase();
-//     let searchResults;
-//     switch(searchType){
-//       case 'yes':
-//       searchResults = searchByEyeColor(people);
-//       break;
-//     case 'no':
 
       break;
       default:
@@ -96,17 +88,15 @@ function searchByName(people){
 function searchByEyeColor(people){
   let eyeColorSearch = prompt("What is the eye color of the person you are searching for?", autoValid);
 
-  let foundEyeColor = people.filter(function(potentialMatch){
+  let foundPerson = people.filter(function(potentialMatch){
     if(potentialMatch.eyeColor === eyeColorSearch){
       return true;
     }
     else{
       return false;
     }
-  })
-  return foundEyeColor;
-
-
+  });
+  return foundPerson;
 }
 
 //TODO: add other trait filter functions here.
