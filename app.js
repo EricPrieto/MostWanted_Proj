@@ -15,14 +15,7 @@ function app(people) {
       searchResults = searchByName(people);
       break;
     case 'no':
-      let userInput = prompt("Type '1' to search by single trait or type '2' to search by multiple");
-      if (userInput === "1") {
-        searchResults = searchByEyeColor(people);
-      } else if (userInput === "2") {
-        //do something
-      } else {
-        prompt("Type '1' to search by single trait or type '2' to search by multiple");
-      }
+      searchResults = singleSearch(people)
       // TODO: search by traits
 
       break;
@@ -147,6 +140,25 @@ function searchByWeight(people) {
     }
   });
   return foundPerson;
+}
+
+function singleSearch(people){
+  let singleTrait = people;
+  let singleSearchResult = prompt("What trait would you like to search for: 'eye color', 'gender', 'height', 'weight'");
+  switch(singleSearchResult){
+    case "eye color":
+      singleTrait = searchByEyeColor(singleTrait);
+      displayPeople(singleTrait);
+    break;
+    case "gender":
+      searchResults = searchByGender(singleTrait);
+      displayPeople(singleTrait);
+    break;
+    default:
+
+    return singleSearchResult;
+  }
+
 }
 
 //TODO: add other trait filter functions here.
