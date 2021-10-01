@@ -40,12 +40,10 @@ function mainMenu(person, people) {
 
   switch (displayOption) {
     case "info":
-      // console.log(" ");
       displayPerson(person[0]);
-      // searchByEyeColor;
       break;
     case "family":
-      // TODO: get person's family
+      displayPeople(spouse[0]);
       break;
     case "descendants":
       // TODO: get person's descendants
@@ -173,11 +171,6 @@ function singleSearch(people) {
   return singleSearchResult;
 }
 
-
-
-
-
-
 //TODO: add other trait filter functions here.
 
 
@@ -206,7 +199,35 @@ function displayPerson(person) {
   personInfo += "Eye Color: " + person.eyeColor + "\n";
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
-  displayPeople(person);
+  displayPeople(person); //DONE
+}
+
+let filteredPeople = data.filter(function (element) { // function for displaying childred, grandchildren
+
+});
+// }//filter all of the people where their parents array contains the id of the person
+
+function displayImmediateFamilyMembers(familyMembers, people) { //function for displaying the immediate family
+  let spouse = people.currentSpouse[0];
+
+  let foundPerson = people.filter(function (potentialMatch) {
+    if (potentialMatch.currentSpouse[0] === spouse) {
+      return true;
+    }
+    else {
+      return false;
+    }
+
+  });
+
+  // alert(personsFamilyMembers);
+  // displayPeople(spouse);
+  // return foundPerson;
+  // let personsFamilyMembers = "Parents: " + person.parents + "\n";
+  // personsFamilyMembers = "Spouse: " + person.currentSpouse + "\n";
+  // personsFamilyMembers = "Siblings: " + person.siblings + "\n"; //find people who share a parent(s)
+
+
 }
 
 //#endregion
