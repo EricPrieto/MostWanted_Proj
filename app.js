@@ -36,13 +36,13 @@ function mainMenu(person, people) {
     return app(people); // restart
   }
 
-  let displayOption = promptFor("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let displayOption = promptFor("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
 
   switch (displayOption) {
     case "info":
-     console.log(" ");
-     displayPerson (person,people);
-     searchByEyeColor;
+      // console.log(" ");
+      displayPerson(person[0]);
+      // searchByEyeColor;
       break;
     case "family":
       // TODO: get person's family
@@ -174,10 +174,9 @@ function singleSearch(people) {
 }
 
 
-let traits = ["eye color", "gender", "height", "weight"];
-function traitsToBeSelected() {
 
-}
+
+
 
 //TODO: add other trait filter functions here.
 
@@ -201,8 +200,13 @@ function displayPerson(person) {
   // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "Date of Birth: " + person.dob + "\n";
+  personInfo += "Height: " + person.height + "\n";
+  personInfo += "Weight: " + person.weight + "\n";
+  personInfo += "Eye Color: " + person.eyeColor + "\n";
   // TODO: finish getting the rest of the information to display.
   alert(personInfo);
+  displayPeople(person);
 }
 
 //#endregion
