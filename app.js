@@ -43,7 +43,7 @@ function mainMenu(person, people) {
       displayPerson(person[0]);
       break;
     case "family":
-      displayImmediateFamilyMembers(people, person); 
+      displayImmediateFamilyMembers(person, people);
       break;
     case "descendants":
       // TODO: get person's descendants
@@ -207,21 +207,22 @@ let filteredPeople = data.filter(function (element) { // function for displaying
 });
 // }//filter all of the people where their parents array contains the id of the person
  //function for displaying the immediate family
- function displayImmediateFamilyMembers(people, person){
-   let spouse = people.filter(function (potentialMatch)
-   {
-     if (person.currentSpouse === potentialMatch){
+ function displayImmediateFamilyMembers(person, people){
+  let spouse = people.filter(function (potentialMatch){
+     if (person.currentSpouse === potentialMatch.id){
        return true;
      }
      else{
        return false;
      }
    });
+   alert (spouse);
    return spouse;
+   
+   //displayImmediateFamilyMembers(spouse);
  }
   // alert(personsFamilyMembers);
   // displayPeople(spouse);
-  // return foundPerson;
   // let personsFamilyMembers = "Parents: " + person.parents + "\n";
   // personsFamilyMembers = "Spouse: " + person.currentSpouse + "\n";
   // personsFamilyMembers = "Siblings: " + person.siblings + "\n"; //find people who share a parent(s)
